@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document Manipulation (JavaScript)</title>
+<script type="text/javascript">
+function display()
+{
+  var firstName = document.getElementsByName("firstName")[0].value;
+  var lastName = document.getElementsByName("lastName")[0].value;
+  
+  document.getElementById("who").innerHTML = firstName + " " + lastName;
+
+  var row = document.createElement("tr");
+  var cell1 = document.createElement("td");
+  var cell2 = document.createElement("td");
+  var text1 = document.createTextNode(firstName);
+  var text2 = document.createTextNode(lastName);
+  cell1.appendChild( text1 );
+  cell2.appendChild( text2 );
+  row.appendChild( cell1 );
+  row.appendChild( cell2 );
+  document.getElementById("t1").appendChild( row );
+}
+</script>
+</head>
+<body>
+<p>hello <span id="who">world</span>.</p>
+
+<table id="t1" border="1">
+  <tr><th>First Name</th><th>Last Name</th></tr>
+  <tr><td>John</td><td>Doe</td></tr>
+  <tr><td>Jane</td><td>Doe</td></tr>
+</table>
+
+<br />
+
+<form name="f1">
+  First Name: <input type="text" name="firstName" /> <br />
+  Last Name: <input type="text" name="lastName" /> <br />
+</form>
+
+<br />
+
+<button id="click" onclick="display();">Click Me</button>
+</body>
+</html>
