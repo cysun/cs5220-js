@@ -1,19 +1,26 @@
+<!DOCTYPE html>
 <html>
-<head><title>Event Handling</title>
-
-<script type="text/javascript" src="javascript/x_core.js"></script>
-<script type="text/javascript" src="javascript/x_event.js"></script>
-<script type="text/javascript">
-function mouseMoveHandler(e)
+<head>
+<meta charset="UTF-8">
+<title>Client-Side JavaScript</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+function add(x,y)
 {
-  var xe = new xEvent( e );
-  document.getElementById( "body" ).innerHTML +=
-      ( " (" + xe.offsetX + "," + xe.offsetY + ") ");
+	return Number(x) + Number(y);
 }
-</script>
 
+$(function(){
+	$("#add").click(function(){
+		var x = $("[name='x']").val();
+		var y = $("[name='y']").val();
+		$("#sum").html( add(x,y) );
+	});
+});
+</script>
 </head>
-<body id="body" onmousemove="mouseMoveHandler(event);">
-Mouse movements:<br>
+<body>
+<input type="text" name="x" /> + <input type="text" name="y" /> = <span id="sum">0</span>
+<p><button id="add">Add</button>
 </body>
 </html>

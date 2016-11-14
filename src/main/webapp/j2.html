@@ -2,30 +2,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Document Manipulation (JavaScript)</title>
-<script type="text/javascript">
-function display()
-{
-  var firstName = document.getElementsByName("firstName")[0].value;
-  var lastName = document.getElementsByName("lastName")[0].value;
-  
-  document.getElementById("who").innerHTML = firstName + " " + lastName;
-
-  var row = document.createElement("tr");
-  var cell1 = document.createElement("td");
-  var cell2 = document.createElement("td");
-  var text1 = document.createTextNode(firstName);
-  var text2 = document.createTextNode(lastName);
-  cell1.appendChild( text1 );
-  cell2.appendChild( text2 );
-  row.appendChild( cell1 );
-  row.appendChild( cell2 );
-  document.getElementById("t1").appendChild( row );
-}
+<title>Document Manipulation</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$(function(){
+    $("#click").click(function(){
+        var firstName = $("input[name='firstName']").val();
+        var lastName = $("input[name='lastName']").val();
+        $("#who").html(firstName);
+        $("#t1").append("<tr><td>" + firstName + "</td><td>" + lastName +"</td></tr>");
+    });
+});
 </script>
 </head>
 <body>
-<p>hello <span id="who">world</span>.</p>
+<p>Hello <span id="who">world</span>.</p>
 
 <table id="t1" border="1">
   <tr><th>First Name</th><th>Last Name</th></tr>
@@ -35,13 +26,11 @@ function display()
 
 <br />
 
-<form name="f1">
-  First Name: <input type="text" name="firstName" /> <br />
-  Last Name: <input type="text" name="lastName" /> <br />
-</form>
+First Name: <input type="text" name="firstName" /> <br />
+Last Name: <input type="text" name="lastName" /> <br />
 
 <br />
 
-<button id="click" onclick="display();">Click Me</button>
+<button id="click">Click Me</button>
 </body>
 </html>
