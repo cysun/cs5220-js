@@ -8,13 +8,13 @@
 $(function(){
 	$("#select").change(function(){
 		if($(this).prop("checked"))
-			$("[type='checkbox']").prop("checked",true);
+			$(":checkbox").prop("checked",true);
 		else
-			$("[type='checkbox']").prop("checked",false);
+			$(":checkbox").prop("checked",false);
 	});
 	$("#hide").click(function(){
-		$("[type='checkbox']").filter(function(){
-			return $(this).attr("id") != "select" && $(this).prop("checked");
+		$(":checked").filter(function(){
+			return $(this).attr("id") != "select";
 		}).closest("tr").hide();
 	});
 	$("#show").click(function(){
