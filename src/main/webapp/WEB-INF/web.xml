@@ -5,8 +5,8 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     id="WebApp_ID" version="3.0">
 
-    <description>Ajax Examples</description>
-    <display-name>ajax</display-name>
+    <description>JavaScript Examples</description>
+    <display-name>js</display-name>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

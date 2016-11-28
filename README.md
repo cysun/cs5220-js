@@ -1,4 +1,3 @@
-# JavaScript and AJAX Example
+# JavaScript and jQuery Examples
 
-JavaScript and AJAX examples.
-
+JavaScript and jQuery examples.
