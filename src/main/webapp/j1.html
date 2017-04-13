@@ -5,16 +5,11 @@
 <title>Client-Side JavaScript</title>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
-function add(x,y)
-{
-	return Number(x) + Number(y);
-}
-
 $(function(){
 	$("#add").click(function(){
 		var x = $("[name='x']").val();
 		var y = $("[name='y']").val();
-		$("#sum").html( add(x,y) );
+		$("#sum").html( Number(x)+Number(y) );
 	});
 });
 </script>

@@ -2,45 +2,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Batch Element Processing</title>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<title>jQery Basics</title>
+<style>
+  .answer {margin-bottom: 3px;}
+</style>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
 $(function(){
-	$("#select").change(function(){
-		if($(this).prop("checked"))
-			$(":checkbox").prop("checked",true);
-		else
-			$(":checkbox").prop("checked",false);
-	});
-	$("#hide").click(function(){
-		$(":checked").filter(function(){
-			return $(this).attr("id") != "select";
-		}).closest("tr").hide();
-	});
-	$("#show").click(function(){
-		$("tr").show();
-	});
+    var nextId = 1;
+    $("#add").click(function(){
+        var $answer = $("<div class='answer' data-answer-id='" + nextId +"'></div)");
+        $answer.append("<input type='text' name='answer' /> ");
+        var $minus = $("<button class='minus' data-answer-id='" + nextId + "'>-</button>");
+        $minus.click(function(){
+           $answer.remove(); 
+        });
+        $answer.append($minus);
+        $("#answers").append($answer);
+        ++nextId;
+    });
 });
 </script>
 </head>
 <body>
-<p><button id="hide">Hide</button> <button id="show">Show</button></p>
-<table border="1">
-  <tr>
-    <th><input id="select" type="checkbox" /></th>
-    <th>ID</th><th>Name</th><th>HW1</th><th>HW2</th></tr>
-  <tr>
-    <td><input name="userId" type="checkbox" value="1000" /></td>
-    <td>1000</td><td>John</td><td>85</td><td>95</td>
-  </tr>
-  <tr>
-    <td><input name="userId" type="checkbox" value="1001" /></td>
-    <td>1001</td><td>Jane</td><td>90</td><td>90</td>
-  </tr>
-  <tr>
-    <td><input name="userId" type="checkbox" value="1002" /></td>
-    <td>1002</td><td>Tom</td><td>75</td><td>100</td>
-  </tr>
-</table>
+<p>What programming languages do you know?</p>
+<div id="answers">
+  <div class="answer" data-answer-id="0">
+    <input class="answer" type="text" name="answer" /> <button id="add">+</button>
+  </div>
+</div>
 </body>
 </html>
