@@ -13,7 +13,7 @@ $(function(){
     $("#add").click(function(){
         var $answer = $("<div class='answer' data-answer-id='" + nextId +"'></div)");
         $answer.append("<input type='text' name='answer' /> ");
-        var $minus = $("<button class='minus' data-answer-id='" + nextId + "'>-</button>");
+        var $minus = $("<button>-</button>");
         $minus.click(function(){
            $answer.remove(); 
         });
