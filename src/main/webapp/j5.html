@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Drag and Drop</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<style>
+  .left {width:30%; float: left; margin: 1em;}
+  .right {width: 30%; float: left; margin: 1em;}
+  .yellow {background: yellow;}
+</style>
+<script>
+$(function(){
+    $("span").draggable({
+        revert: "invalid"
+    });
+    $("td:empty").droppable({
+        hoverClass: "yellow",
+        drop: function(event, ui){
+          $(this).text( ui.draggable.text() );
+          $(this).droppable({ disabled: true });
+          ui.draggable.parent().remove();
+        }
+    });
+});
+</script>
+</head>
+<body>
+<p>Match Web Framework with Programming Languages</p>
+<div>
+
+  <div class="left">
+  <table border="1">
+    <thead><tr><th>Web Framework</th><th>Programming Language</th></tr></thead>
+    <tr><td>Spring</td><td></td></tr>
+    <tr><td>ASP.NET</td><td></td></tr>
+    <tr><td>Django</td><td></td></tr>
+    <tr><td>Zend</td><td></td></tr>
+    <tr><td>Express</td><td></td></tr>
+    <tr><td>Rails</td><td></td></tr>
+  </table>
+  </div>
+
+  <div class="right">
+    <ul>
+      <li><span>C#</span></li>
+      <li><span>Ruby</span></li>
+      <li><span>Python</span></li>
+      <li><span>PHP</span></li>
+      <li><span>JavaScript</span></li>
+      <li><span>Java</span></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
