@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Drag and Drop</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <style>
@@ -16,7 +17,9 @@ $(function(){
         revert: "invalid"
     });
     $("td:empty").droppable({
-        hoverClass: "yellow",
+        classes: {
+            "ui-droppable-hover" : "yellow"
+        },
         drop: function(event, ui){
           $(this).text( ui.draggable.text() );
           $(this).droppable({ disabled: true });
@@ -29,7 +32,6 @@ $(function(){
 <body>
 <p>Match Web Framework with Programming Languages</p>
 <div>
-
   <div class="left">
   <table border="1">
     <thead><tr><th>Web Framework</th><th>Programming Language</th></tr></thead>
@@ -41,7 +43,6 @@ $(function(){
     <tr><td>Rails</td><td></td></tr>
   </table>
   </div>
-
   <div class="right">
     <ul>
       <li><span>C#</span></li>
